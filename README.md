@@ -1,2 +1,10 @@
 # Automating_tasks
-Going to add programs that automate my workflow
+
+
+## Generating setup for cython
+
+Use the following:
+```bash
+sudo chmod +x <filename> && sudo mv <filename> /usr/bin/local
+```
+You can now run it from everywhere
