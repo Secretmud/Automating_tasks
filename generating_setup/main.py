@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 from os import system, rename
 
 def main():
@@ -15,10 +15,12 @@ def main():
         system("ls "+ fileName.strip(".pyx") + ".cp* > file.txt")
         with open("file.txt", "r") as f:
                 soFile = f.read()
-                print(soFile)
-        rename(soFile.strip("\n"), fileName.strip(".pyx") + ".so")
-        system("ls -al")
-        print("Write: import " + fileName.strip(".so"))
-        system("python")
-        
+        system("rm file.txt")
+        fileName = fileName.strip(".pyx")
+        rename(soFile.strip("\n"), fileName + ".so")
+        system("\nls -al\n")
+        with open("run.py", "w") as f:
+                f.write("import " + fileName)
+        system("python run.py")
+       
 main()
